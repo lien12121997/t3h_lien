@@ -1,0 +1,70 @@
+/* Common */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #eee;
+}
+a {
+    color: #333;
+}
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+/* Page */
+.row-top {
+    margin: 30px 0 10px;
+}
+.total-task {
+    margin-top: 7px;
+}
+select.filter {
+    width: 135px;
+    border: none;
+    background: none;
+    color: #0d6efd;
+    outline: none;
+    box-shadow: none;
+    display: inline-block;
+}
+.btn-filter {
+    background: none;
+    border: 1px solid #333;
+    padding: 6px 12px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.txt-grey {
+    color: #aaa;
+}
+.card-item {
+    margin: 15px 0;
+}
+.card-item .fa-credit-card-alt {
+    color: #dc3545;
+}
+.card-item .card-text {
+    margin-bottom: 30px;
+}
+.card-item .btn-cart-link {
+    margin: 10px 0;
+}
+.box-account {
+    display: inline-block;
+    position: relative;
+    margin-right: 50px;
+}
+.box-account img {
+    border-radius: 50px;
+}
+.box-account .img-position {
+    position: absolute;
+}
+.img-position1 {
+    top: 0;
+    left: 25px;
+}
+.img-position2 {
+    top: 0;
+    left: 50px;
+}

@@ -1,0 +1,26 @@
+/* Common */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: url(../images/sky.jpg) center center no-repeat;
+    background-size: cover;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Content */
+.section {
+    width: 100%;
+    float: left;
+}
+.card-item {
+    margin: 15px 0;
+    padding: 15px;
+    background: #457687;
+    color: #fff;
+    opacity: 0.9;
+}
+.card-item .card-text {
+    padding-top: 20px;
+}
