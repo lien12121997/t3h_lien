@@ -1,0 +1,119 @@
+:focus {
+    box-shadow: none !important;
+    border-color: #dee2e6 !important;
+}
+body {
+    font-family: 'Open san', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #438fc1;
+}
+.bg-grey {
+    background: #fafafa;
+}
+.form-center {
+    width: 1100px;
+    margin: auto;
+}
+.form-center .bg-white,
+.form-center .bg-grey {
+    padding: 50px 40px;
+}
+.form-center .bg-grey {
+    border-left: 1px solid #ccc;
+}
+.form-center .bg-white h3,
+.form-center .bg-grey h3 {
+    margin-bottom: 15px;
+}
+.bg-white h5 {
+    margin-bottom: 15px;
+}
+.breadcrumb {
+    line-height: 20px;
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 13px;
+    border-radius: 0;
+    list-style: none;
+    display: inline-block;
+}
+.breadcrumb>li {
+    display: inline-block;
+}
+.breadcrumb>li, .breadcrumb>li.active {
+    padding: 0 3px 0 0;
+}
+.breadcrumb>li+li:before {
+    font-family: FontAwesome;
+    font-size: 14px;
+    content: "\f105";
+    color: #B2B6BF;
+    padding: 0;
+    margin: 0 8px 0 0;
+    position: relative;
+    top: 1px;
+}
+.form-center input,
+.form-center select {
+    margin-bottom: 10px;
+}
+.shipping {
+    margin-top: 30px;
+}
+.slt-position {
+    padding-top: 15px;
+}
+.txt-absolute {
+    left: 25px;
+    top: 2px;
+    font-size: 12px;
+    color: #495057;;
+    ;
+}
+input[name="postal_code"] {
+    height: 47px;
+}
+.link-cart:before {
+    font-family: FontAwesome;
+    font-size: 20px;
+    content: "\2039";
+    color: #438fc1;
+    padding: 0;
+    margin: 0 8px 0 0;
+    position: relative;
+}
+.btn-shipping {
+    border: none;
+    background: #438fc1;
+    font-size: 12px;
+    padding: 15px 20px;
+}
+.box-bottom {
+    margin-top: 20px;
+}
+.img-position {
+    width: 60px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.img-position img {
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+.item-in-cart {
+    margin-bottom: 15px;
+}
+.text-small {
+    font-size: 13px;
+    color: #495057;
+}
+.text-big {
+    font-size: 18px;
+}
+.btn-coupon {
+    background: #c8c8c8;
+    color: #fff;
+    padding: 6px 18px;
+}
