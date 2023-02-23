@@ -4,6 +4,7 @@
 }
 body {
     font-family: 'Open san', sans-serif;
+    font-size: 14px;
 }
 a {
     text-decoration: none;
@@ -58,6 +59,7 @@ a {
 .form-center input,
 .form-center select {
     margin-bottom: 10px;
+    font-size: 14px;
 }
 .shipping {
     margin-top: 30px;
@@ -69,8 +71,7 @@ a {
     left: 25px;
     top: 2px;
     font-size: 12px;
-    color: #495057;;
-    ;
+    color: #495057;
 }
 input[name="postal_code"] {
     height: 47px;
@@ -87,8 +88,8 @@ input[name="postal_code"] {
 .btn-shipping {
     border: none;
     background: #438fc1;
-    font-size: 12px;
     padding: 15px 20px;
+    font-size: 14px;
 }
 .box-bottom {
     margin-top: 20px;
@@ -116,4 +117,5 @@ input[name="postal_code"] {
     background: #c8c8c8;
     color: #fff;
     padding: 6px 18px;
+    font-size: 14px;
 }
