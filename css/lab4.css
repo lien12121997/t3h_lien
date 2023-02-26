@@ -1,0 +1,123 @@
+body {
+    font-family: 'Karma', sans-serif;
+}
+.form-control:focus {
+    box-shadow: none !important;
+}
+.header-top {
+    background: #fff;
+}
+.header-top .text-red {
+    color: #e9382d;
+}
+.header-top .btn-search {
+    color: #565656;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.banner {
+    background: url(../images/london2.jpg) center center no-repeat;
+    background-size: cover;
+    height: 700px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+.box-banner-content {
+    width: 60%;
+    margin: auto;
+    background: #fff;
+}
+.box-banner-content .modal-header {
+    background: #000;
+    color: #fff;
+}
+.box-banner-content .modal-header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.box-banner-content .modal-header ul li {
+    float: left;
+    display: inline-block;
+    padding: 5px 15px;
+}
+.box-banner-content .modal-header ul li.active {
+    background: #e9382d;
+}
+.box-banner-content .modal-body {
+    padding: 30px 15px;
+}
+.box-banner-content .modal-body input {
+    border-radius: 0;
+}
+.box-banner-content .btn-search-date {
+    background: #565656;
+    color: #fff;
+    border-radius: 0;
+}
+.content {
+    background: #efefef;
+}
+.row-img .img-top {
+    margin-bottom: 22px;
+}
+.row-img img {
+    width: 100%;
+    object-fit: cover;
+}
+.row-img .position-relative .position-absolute {
+    left: 15px;
+    bottom: -10px;
+    color: #fff;
+}
+.card-item {
+    border: none;
+    border-radius: 0;
+}
+.card-item img {
+    border-radius: 0;
+}
+.txt-small-grey {
+    color: #565656;
+}
+.newsletter {
+    background: #565656;
+    color: #fff;
+    padding: 30px 15px 15px;
+}
+.newsletter input {
+    border-radius: 0;
+}
+.newsletter .btn-subscribe {
+    background: #e9382d;
+    color: #fff;
+    border-radius: 0;
+}
+.contact input,
+.contact textarea {
+    border-radius: 0;
+}
+.contact .btn-send {
+    border-radius: 0;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 8px 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .img-top {
+        margin-bottom: 1rem;
+    }
+}
+@media screen and (max-width: 576px) {
+    .banner {
+        display: none;
+    }
+}

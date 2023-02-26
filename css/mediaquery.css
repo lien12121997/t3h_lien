@@ -1,0 +1,24 @@
+body {
+    font-family: 'Karma', sans-serif;
+}
+.menu-top {
+    background: #fff;
+}
+.card-item {
+    border: none;
+    border-radius: 0;
+}
+.card-item img {
+    border-radius: 0;
+}
+.tag {
+    background: #616161;
+    display: inline-block;
+}
+.tag.active {
+    background: #000;
+}
+.tag a {
+    color: #fff;
+    text-decoration: none;
+}

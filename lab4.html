@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/lab4.css">
+</head>
+<body>
+    <section class="header">
+        <div class="mb-1 header-top">
+            <div class="grid">
+                <div class="g-col-6">
+                    <h5 class="text-red pt-2 ms-3"><i class="fa fa-map-marker" aria-hidden="true"></i> Logo</h5>
+                </div>
+                <div class="g-col-6 text-end">
+                    <button type="button" class="btn btn-search mt-1">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner">
+            <div class="box-banner-content">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <ul>
+                            <li class="active"><i class="fa fa-plane me-2" aria-hidden="true"></i> Flight</li>
+                            <li><i class="fa fa-bed me-2" aria-hidden="true"></i> Hotel</li>
+                            <li><i class="fa fa-car me-2" aria-hidden="true"></i> Rental</li>
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Travel the world with us</h5>
+                        
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label for="form">From</label>
+                                    <input type="text" class="form-control" name="from" placeholder="Departing from">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="form">To</label>
+                                    <input type="text" class="form-control" name="to" placeholder="Arriving at">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn btn-search-date">Search and find dates</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col">
+                    <h5>Good Offers Right Now</h5>
+                    <p>Up to 50% discount.</p>
+                </div>
+            </div>
+
+            <div class="row row-img">
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="position-relative">
+                        <img src="images/cinqueterre.jpg" alt="" class="img-fluid">
+                        <p class="position-absolute">Cinque Terre</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6 img-top">
+                            <div class="position-relative">
+                                <img src="images/newyork2.jpg" alt="" class="img-fluid">
+                                <p class="position-absolute">New York</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 img-top">
+                            <div class="position-relative">
+                                <img src="images/sanfran.jpg" alt="" class="img-fluid">
+                                <p class="position-absolute">San Francisco</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                            <div class="position-relative">
+                                <img src="images/pisa.jpg" alt="" class="img-fluid">
+                                <p class="position-absolute">Pisa</p>
+                            </div>
+                        </div> 
+                        <div class="col-12 col-sm-6 col-md-6 mb-3">
+                            <div class="position-relative">
+                                <img src="images/paris.jpg" alt="" class="img-fluid">
+                                <p class="position-absolute">Paris</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+                    <h5>Explore Nature</h5>
+                    <p>Travel with us and see nature at its finest.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card card-item">
+                        <img src="images/ocean2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">West Coast, Norway</h5>
+                            <p class="txt-small-grey">Roundtrip from $79</p>
+                            <p class="card-text">Praesent tincidunt sed tellus ut rutrum sed vitae justo</p>
+                            <a href="#" class="btn">Buy Tickets</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card card-item">
+                        <img src="images/mountains2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Mountains, Austria</h5>
+                            <p class="txt-small-grey">One-way from $39</p>
+                            <p class="card-text">Praesent tincidunt sed tellus ut rutrum sed vitae justo</p>
+                            <a href="#" class="btn">Buy Tickets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter mt-3">
+                <h4>Get the best offers first!</h4>
+                <p class="txt-small">Join our newsletter.</p>
+
+                <form action="#" method="post">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" placeholder="Your email address">
+
+                    <button type="submit" class="btn btn-subscribe mt-3">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="contact mt-4">
+                <h4>Contact</h4>
+                <p>Let us book your next trip!</p>
+
+                <p>
+                    <span><i class="fa fa-map-marker me-3" aria-hidden="true"></i>&nbsp; Chicago, US</span> <br>
+                    <span><i class="fa fa-phone me-3" aria-hidden="true"></i> Phone: +00 151515</span> <br>
+                    <span><i class="fa fa-envelope me-3" aria-hidden="true"></i>Email: mail@mail.com</span>
+                </p>
+
+                <form action="#" method="post">
+                    <input type="name" class="form-control mb-3" placeholder="Name">
+                    <input type="email" class="form-control mb-3" placeholder="Email">
+                    <textarea name="message" class="form-control mb-3" rows="3" placeholder="Message"></textarea>
+
+                    <button type="submit" class="btn btn-send">send message</button>
+                </form>
+            </div>
+
+            <div class="footer mt-4 pb-3 text-center">
+                <p>Find Us On</p>
+                <p>
+                    <i class="fa fa-facebook-official me-1" aria-hidden="true"></i>
+                    <i class="fa fa-instagram me-1" aria-hidden="true"></i>
+                    <i class="fa fa-snapchat me-1" aria-hidden="true"></i>
+                    <i class="fa fa-pinterest-p me-1" aria-hidden="true"></i>
+                    <i class="fa fa-twitter me-1" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </p>
+
+                <p>Powered by w3.css</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
