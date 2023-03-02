@@ -9,11 +9,11 @@ function jackpot() {
     var count = 0;
 
     for(var i = 0; i<6; i++) {
-        var so = prompt("Nhập số của bạn từ 0 - 55: ");
+        var so = prompt("Nhập số của bạn từ 1 -> 55: ");
         so = parseInt(so);
 
-        while(isNaN(so) || so < 0 || so > 55 || inArray(so, arr_so) == true) {
-            so = prompt("Thông tin bạn nhập phải là số và từ 0-55 và không trùng với các số bạn đã nhập: ");
+        while(isNaN(so) || so < 1 || so > 55 || inArray(so, arr_so) == true) {
+            so = prompt("Thông tin bạn nhập phải là số và từ 1 -> 55 và không trùng với các số bạn đã nhập: ");
             so = parseInt(so);
         }
 
@@ -42,15 +42,19 @@ function arrNumberLucky() {
     var arr = [];
 
     for(var y = 0; y<6; y++) {
-        var kq = parseInt(Math.random()*56);
+        var kq = autoNumber(1, 55);
 
         while(inArray(kq, arr) == true) {
-            kq = parseInt(Math.random()*56);
+            kq = autoNumber(1, 55);
         }
 
         arr[y] = kq;
     }
     return arr;
+}
+
+function autoNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function inArray(number, arr) {
