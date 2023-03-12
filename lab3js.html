@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <style type="text/css">
+        .megamenu,
+        .dropdown-menu-item {
+            background: #78b43d;
+        }
+        .dropdown-menu-item {
+            background: #aad862;
+            border-radius: 0;
+            padding: 0;
+        }
+
+        .megamenu ul li {
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .megamenu .dropdown-menu-item li {
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        .megamenu ul li:hover,
+        .megamenu ul li.active {
+            background: #609a26;
+        }
+
+        .megamenu ul li span {
+            font-size: 10px;
+        }
+
+        .megamenu ul li a.nav-link,
+        .megamenu ul li.active a.nav-link,
+        .megamenu ul li:hover a.nav-link {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="megamenu">
+            <ul class="nav">
+                <li class="nav-item active" onMouseOver="showDropdownMenu(1)" onMouseOut="hideDropdownMenu(1)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-bars" aria-hidden="true"></i> <br>
+                        <span>danh mục</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-1">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(2)" onMouseOut="hideDropdownMenu(2)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i> <br>
+                        <span>tin tức</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-2">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(3)" onMouseOut="hideDropdownMenu(3)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-globe" aria-hidden="true"></i> <br>
+                        <span>thế giới</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-3">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(4)" onMouseOut="hideDropdownMenu(4)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-gamepad" aria-hidden="true"></i> <br>
+                        <span>giải trí</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-4">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(5)" onMouseOut="hideDropdownMenu(5)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> <br>
+                        <span>thị trường</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-5">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(6)" onMouseOut="hideDropdownMenu(6)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-balance-scale" aria-hidden="true"></i> <br>
+                        <span>pháp luật</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-6">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(7)" onMouseOut="hideDropdownMenu(7)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-tablet" aria-hidden="true"></i> <br>
+                        <span>hi-tech</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-7">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(8)" onMouseOut="hideDropdownMenu(8)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-car" aria-hidden="true"></i> <br>
+                        <span>ô tô</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-8">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(9)" onMouseOut="hideDropdownMenu(9)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-motorcycle" aria-hidden="true"></i> <br>
+                        <span>xe đạp - xe máy</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-9">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(10)" onMouseOut="hideDropdownMenu(10)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i> <br>
+                        <span>sức khỏe</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-10">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(11)" onMouseOut="hideDropdownMenu(11)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i> <br>
+                        <span>ẩm thực</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-11">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(12)" onMouseOut="hideDropdownMenu(12)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-female" aria-hidden="true"></i> <br>
+                        <span>phái đẹp</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-12">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(13)" onMouseOut="hideDropdownMenu(13)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-desktop" aria-hidden="true"></i> <br>
+                        <span>công nghệ</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-13">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(14)" onMouseOut="hideDropdownMenu(14)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i> <br>
+                        <span>video</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-14">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" onMouseOver="showDropdownMenu(15)" onMouseOut="hideDropdownMenu(15)">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i> <br>
+                        <span>giáo dục</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-item" id="dropdown-menu-15">
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>tin tức trong ngày</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>bóng đá</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thế giới</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>thời trang</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>pháp luật</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">
+                                <span>du lịch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function showDropdownMenu(id) {
+            var dropdown_menu = document.getElementById('dropdown-menu-'+id);
+
+            console.log(dropdown_menu)
+                
+            dropdown_menu.style.display = "block";
+        }
+
+        function hideDropdownMenu(id) {
+            var dropdown_menu = document.getElementById('dropdown-menu-'+id);
+                
+            dropdown_menu.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

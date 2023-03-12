@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <button class="btn btn-primary" id="btn-click" onclick="showPopup()">
+        Click show popup
+    </button>
+
+    <h3>Email: <span id="email_rlt"></span></h3>
+    <h3>Password: <span id="pw_rlt"></span></h3>
+
+    <div class="modal" id="modal-login" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog">
+            <form action="#" onsubmit="return validate()" method="get">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login</h5>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control mb-3" name="" id="name" placeholder="Name">
+                        <p id="msg1" class="text-danger"></p>
+                        <input type="text" class="form-control mb-3" name="" id="email" placeholder="Email">
+                        <p id="msg2" class="text-danger"></p>
+                        <input type="password" min="6" class="form-control" name="" id="pw" placeholder="Password">
+                        <p id="msg3" class="text-danger"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-close-popup"
+                            onclick="closePopup()">Close</button>
+                        <button type="submit" class="btn btn-primary btn-save">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var modal = document.getElementById('modal-login');
+
+        function showPopup() {
+            modal.style.display = "block";
+        }
+
+        function closePopup() {
+            modal.style.display = "none";
+        }
+
+        function validate() {
+            event.preventdefault;
+
+            var name = document.getElementById('name');
+            var email = document.getElementById('email');
+            var pw = document.getElementById('pw');
+
+            var email_rlt = document.getElementById('email_rlt');
+            var pw_rlt = document.getElementById('pw_rlt');
+
+            var msg1 = document.getElementById('msg1');
+            var msg2 = document.getElementById('msg2');
+            var msg3 = document.getElementById('msg3');
+
+            if (!name.value) {
+                msg1.innerText = "Nhập tên bạn êi";
+                return false;
+            } else {
+                msg1.innerText = '';
+            }
+
+            if (!email.value || !email.value.includes('@')) {
+                msg2.innerText = "Nhập email không thiếu @ bạn êi";
+                return false;
+            } else {
+                msg2.innerText = '';
+            }
+
+            if (!pw.value || pw.value.length < 6) {
+                msg3.innerText = "Nhập pass từ 6 ký tự bạn êi";
+                return false;
+            } else {
+                msg3.innerText = '';
+            }
+
+            email_rlt.innerText = email.value;
+            pw_rlt.innerText = pw.value;
+
+            modal.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>
