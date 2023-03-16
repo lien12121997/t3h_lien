@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/lab4js.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row pt-3" id="list">
+                <div class="col-4">
+                    <div class="d-flex justify-content-center align-items-center mb-5">
+                        <div class="col-1"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        <div class="col-11 px-3">
+                            <h3 id="name"></h3>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center mb-5">
+                        <div class="col-1"></div>
+                        <div class="col-11 px-3">
+                            <p class="m-0">September 15</p>
+                            <p>Monday</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="col-1">
+                            <img src="images/tem.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-11 px-3">
+                            <h1 id="temp"></h1>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="col-1">
+                        </div>
+                        <div class="col-11 px-3">
+                            <p id="feels_like"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="images/cloudy.png" alt="" class="img-fluid">
+
+                    <p id="weather" class="text-center mt-5"></p>
+                </div>
+                <div class="col-4">
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <h3>
+                                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="" style="width: 150px; float: right">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-sun-o me-1" aria-hidden="true"></i>
+                                <span> Sunrise: </span>
+                                <span id="sunrise"></span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-sun-o me-1" aria-hidden="true"></i>
+                                <span> Sunset: </span>
+                                <span id="sunset"></span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-tint me-1" aria-hidden="true"></i> 
+                                <span id="humidity"></span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-tint me-1" aria-hidden="true"></i> 
+                                <span id="gust"></span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-compass me-1" aria-hidden="true"></i> 
+                                <span> North-East</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-long-arrow-up me-1" aria-hidden="true"></i> 
+                                <span id="pressure"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-3 mt-5 border-radius-1" style="background: #02b7dc;">
+                <div class="col text-center">
+                    <img src="images/sun.png" alt="" class="img-fluid">
+                    <p><b>+25<sup>o</sup></b></p>
+                    <p>Sunday</p>
+                </div>
+                <div class="col text-center">
+                    <img src="images/mon.png" alt="" class="img-fluid">
+                    <p><b>+19<sup>o</sup></b></p>
+                    <p>Monday</p>
+                </div>
+                <div class="col text-center">
+                    <img src="images/tue.png" alt="" class="img-fluid">
+                    <p><b>+14<sup>o</sup></b></p>
+                    <p>Tuesday</p>
+                </div>
+                <div class="col text-center">
+                    <img src="images/wed.png" alt="" class="img-fluid">
+                    <p><b>+7<sup>o</sup></b></p>
+                    <p>Wednesday</p>
+                </div>
+                <div class="col text-center">
+                    <img src="images/thu.png" alt="" class="img-fluid">
+                    <p><b>-3<sup>o</sup></b></p>
+                    <p>Thurday</p>
+                </div>
+                <div class="col text-center">
+                    <img src="images/fri.png" alt="" class="img-fluid">
+                    <p><b>0<sup>o</sup></b></p>
+                    <p>Friday</p>
+                </div>
+                <div class="col text-center">
+                    <img src="images/sun.png" alt="" class="img-fluid">
+                    <p><b>+5<sup>o</sup></b></p>
+                    <p>Saturday</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            var res = JSON.parse(this.responseText);
+            console.log(res)
+            document.getElementById('name').innerText = res.name;
+            document.getElementById('temp').innerHTML = res.main.temp + `<sup>o</sup>C`;
+            document.getElementById('feels_like').innerHTML = `Feels like ${res.main.feels_like}<sup>o</sup>C`;
+
+            d_ri = new Date(res.sys.sunrise);
+            document.getElementById('sunrise').innerHTML = `${d_ri.getHours()}: ${d_ri.getMinutes()}`;
+            d_se = new Date(res.sys.sunset);
+            document.getElementById('sunset').innerHTML = `${d_se.getHours()}: ${d_se.getMinutes()}`;
+            document.getElementById('humidity').innerHTML = res.main.humidity+"%";
+            document.getElementById('gust').innerHTML = res.wind.gust+" Km/h";
+            document.getElementById('pressure').innerText = res.main.pressure+" mb";
+            document.getElementById('weather').innerText = res.weather[0].main;
+        }
+        xhttp.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric");
+        xhttp.send();
+    </script>
+</body>
+
+</html>
