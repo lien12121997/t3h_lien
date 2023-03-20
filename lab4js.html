@@ -14,6 +14,24 @@
 <body>
     <section>
         <div class="container">
+            <div class="row">
+                <div class="col mt-3 mb-3">
+                    <select name="" id="sltcity" class="form-control" onchange="changeCity(this)">
+                        <option value="hanoi">HaNoi</option>
+                        <option value="london">London</option>
+                        <option value="saigon">Tp HCM</option>
+                        <option value="new york">New York</option>
+                    </select>
+                </div>
+
+                <div class="col mt-3 mb-3">
+                    <select name="" id="slttemp" class="form-control" onchange="changeTemp(this)">
+                        <option value="metric">C</option>
+                        <option value="kelvin">K</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="row pt-3" id="list">
                 <div class="col-4">
                     <div class="d-flex justify-content-center align-items-center mb-5">
@@ -71,19 +89,19 @@
                                 <span id="sunset"></span>
                             </div>
                             <div class="d-flex align-items-center">
-                                <i class="fa fa-tint me-1" aria-hidden="true"></i> 
+                                <i class="fa fa-tint me-1" aria-hidden="true"></i>
                                 <span id="humidity"></span>
                             </div>
                             <div class="d-flex align-items-center">
-                                <i class="fa fa-tint me-1" aria-hidden="true"></i> 
+                                <i class="fa fa-tint me-1" aria-hidden="true"></i>
                                 <span id="gust"></span>
                             </div>
                             <div class="d-flex align-items-center">
-                                <i class="fa fa-compass me-1" aria-hidden="true"></i> 
+                                <i class="fa fa-compass me-1" aria-hidden="true"></i>
                                 <span> North-East</span>
                             </div>
                             <div class="d-flex align-items-center">
-                                <i class="fa fa-long-arrow-up me-1" aria-hidden="true"></i> 
+                                <i class="fa fa-long-arrow-up me-1" aria-hidden="true"></i>
                                 <span id="pressure"></span>
                             </div>
                         </div>
@@ -132,25 +150,40 @@
     </section>
 
     <script type="text/javascript">
-        var xhttp = new XMLHttpRequest();
-        xhttp.onload = function () {
-            var res = JSON.parse(this.responseText);
-            console.log(res)
-            document.getElementById('name').innerText = res.name;
-            document.getElementById('temp').innerHTML = res.main.temp + `<sup>o</sup>C`;
-            document.getElementById('feels_like').innerHTML = `Feels like ${res.main.feels_like}<sup>o</sup>C`;
+        loadWeather('hanoi', 'metric');
 
-            d_ri = new Date(res.sys.sunrise);
-            document.getElementById('sunrise').innerHTML = `${d_ri.getHours()}: ${d_ri.getMinutes()}`;
-            d_se = new Date(res.sys.sunset);
-            document.getElementById('sunset').innerHTML = `${d_se.getHours()}: ${d_se.getMinutes()}`;
-            document.getElementById('humidity').innerHTML = res.main.humidity+"%";
-            document.getElementById('gust').innerHTML = res.wind.gust+" Km/h";
-            document.getElementById('pressure').innerText = res.main.pressure+" mb";
-            document.getElementById('weather').innerText = res.weather[0].main;
+        function changeCity(slt) {
+            var temp = document.getElementById('slttemp').value;
+            loadWeather(slt.value, temp)
         }
-        xhttp.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric");
-        xhttp.send();
+        function changeTemp(slt) {
+            var city = document.getElementById('sltcity').value;
+            loadWeather(city, slt.value)
+        }
+
+        function loadWeather(city, temp) {
+            var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=09a71427c59d38d6a34f89b47d75975c&units=${temp}`;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var res = JSON.parse(this.responseText);
+                console.log(res)
+                document.getElementById('name').innerText = `${res.name}, ${res.sys.country}`;
+                document.getElementById('temp').innerHTML = res.main.temp + `<sup>o</sup>C`;
+                document.getElementById('feels_like').innerHTML = `Feels like ${res.main.feels_like}<sup>o</sup>`+ temp == 'kelvin' ? 'K' : 'C';
+
+                d_ri = new Date(res.sys.sunrise);
+                document.getElementById('sunrise').innerHTML = `${d_ri.getHours()}: ${d_ri.getMinutes()}`;
+                d_se = new Date(res.sys.sunset);
+                document.getElementById('sunset').innerHTML = `${d_se.getHours()}: ${d_se.getMinutes()}`;
+                document.getElementById('humidity').innerHTML = res.main.humidity + "%";
+                document.getElementById('gust').innerHTML = res.wind.gust + " Km/h";
+                document.getElementById('pressure').innerText = res.main.pressure + " mb";
+                document.getElementById('weather').innerText = res.weather[0].main;
+            }
+            xhttp.open("GET", url);
+            xhttp.send();
+        }
     </script>
 </body>
 

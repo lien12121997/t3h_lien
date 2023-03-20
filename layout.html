@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,242 +9,85 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/layout.css">
 </head>
+
 <body>
     <section class="section">
         <div class="container">
-            <div class="row row-item">
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col mt-3 mb-3">
+                    <select name="" id="sltcity" class="form-control" onchange="changeCity(this)">
+                        <option value="hanoi">HaNoi</option>
+                        <option value="london">London</option>
+                        <option value="saigon">Tp HCM</option>
+                        <option value="new york">New York</option>
+                    </select>
                 </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="col mt-3 mb-3">
+                    <select name="" id="slttemp" class="form-control" onchange="changeTemp(this)">
+                        <option value="metric">C</option>
+                        <option value="kelvin">K</option>
+                    </select>
                 </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-item">
-                        <h6><b>2023-02-17 20:40:00</b></h6>
-                        <div class="row">
-                            <div class="col-md-6 card-text">
-                                <h3><b>25.7<sup>o</sup>C</b></h3>
-                                <p>light rain</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="images/cloud.png" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+
+            <div class="row row-item" id="list">
+
             </div>
         </div>
     </section>
+
+    <script type="text/javascript">
+        loadWeather('hanoi', 'metric');
+
+        function changeCity(slt) {
+            var temp = document.getElementById('slttemp').value;
+            loadWeather(slt.value, temp)
+        }
+        function changeTemp(slt) {
+            var city = document.getElementById('sltcity').value;
+            loadWeather(city, slt.value)
+        }
+
+        function loadWeather(city, temp) {
+            var url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=09a71427c59d38d6a34f89b47d75975c&units=${temp}`;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var res = JSON.parse(this.responseText);
+                document.getElementById('list').innerHTML = "";
+
+                console.log(res)
+
+                for (var i = 0; i < res.list.length; i++) {
+                    var html = `<div class="col-md-3">
+                                    <div class="card card-item">
+                                        <h6><b>${res.list[i].dt_txt}</b></h6>
+                                        <div class="row">
+                                            <div class="col-md-6 card-text">
+                                                <h3><b>${res.list[i].main.temp}<sup>o</sup>${temp == 'kelvin' ? '' : 'C'}</b></h3>
+                                                <p>${res.list[i].weather[0].description}</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="http://openweathermap.org/img/wn/${res.list[i].weather[0].icon}@2x.png" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                    document.getElementById('list').innerHTML += html;
+                }
+            }
+            xhttp.open("GET", url);
+            xhttp.send();
+        }
+    </script>
 </body>
+
 </html>
