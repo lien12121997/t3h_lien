@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping whislist</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <table class="table">
+                        <thead>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th></th>
+                        </thead>
+                        <tbody id="list">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <button onclick="removeAll()">
+                        Xóa hết
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        reloadHtml();
+        function removeItem(x) {
+            var whislist = localStorage.getItem("whislist");
+            if (whislist == null) {
+                whislist = [];
+            } else {
+                whislist = JSON.parse(whislist);
+            }
+            var c = whislist.filter(item => item.id !== x);
+            localStorage.setItem("whislist", JSON.stringify(c));
+            reloadHtml();
+        }
+
+        function reloadHtml() {
+            var whislist = localStorage.getItem("whislist");
+            if (whislist == null) {
+                whislist = [];
+            } else {
+                whislist = JSON.parse(whislist);
+            }
+            var html = ``;
+            if (whislist.length == 0) {
+                html = `<tr><td colspan='5' class="text-center">Không có sp yêu thích nào</td></tr>`;
+            } else {
+                for (var i = 0; i < whislist.length; i++) {
+                    var img = whislist[i].thumbnail;
+                    var name = whislist[i].title;
+                    var price = whislist[i].price;
+                    var id = whislist[i].id;
+                    html += `<tr>       
+                            <td><img width="150" class="img-thumbnail" src="${img}"/></td>
+                            <td>${name}</td>
+                            <td>${price}$</td>
+                            <td><button class="border-0 bg-transparent px-3 py-1" onclick='addToCart(${id})'>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button></td>
+                            <td><span onclick="removeItem(${id})" class="text-danger">X</span></td>
+                        </tr>`;
+                }
+            }
+            document.getElementById("list").innerHTML = html;
+        }
+
+        function removeAll() {
+            localStorage.setItem("whislist", JSON.stringify([]));
+            reloadHtml();
+        }
+
+        function addToCart(x) {
+            var cart = localStorage.getItem("cart");
+            if (cart == null) {
+                cart = [];
+            } else {
+                cart = JSON.parse(cart);
+            }
+
+            for (var i = 0; i < cart.length; i++) {
+                if (x == cart[i].id) {
+                    cart[i].buy_qty = cart[i].buy_qty + 1;
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    alert("Đã thêm vào cart");
+                    return;
+                }
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var rs = this.responseText;
+                var data = JSON.parse(rs);
+                data.buy_qty = 1;
+                cart.push(data);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert("Đã thêm vào cart");
+            }
+            xhttp.open("GET", `https://dummyjson.com/products/${x}`);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping cart</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <table class="table">
+                        <thead>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </thead>
+                        <tbody id="list">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <h2>Cart totals</h2>
+                    <h2 id="total"></h2>
+
+                    <button onclick="removeAll()">
+                        Xóa hết
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        reloadHtml();
+        function removeItem(x) {
+            var cart = localStorage.getItem("cart");
+            if (cart == null) {
+                cart = [];
+            } else {
+                cart = JSON.parse(cart);
+            }
+            var c = [];
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].id != x) {
+                    c.push(cart[i]);
+                }
+            }
+            localStorage.setItem("cart", JSON.stringify(c));
+            // window.location.reload();
+
+            reloadHtml();
+        }
+
+        function reloadHtml() {
+            var cart = localStorage.getItem("cart");
+            console.log(cart)
+            if (cart == null) {
+                cart = [];
+            } else {
+                cart = JSON.parse(cart);
+            }
+            var html = ``;
+            var total = 0;
+            if (cart.length == 0) {
+                html = `<tr><td colspan='6' class="text-center">Không có sp nào trong giỏ hàng</td></tr>`;
+            }
+            else {
+                for (var i = 0; i < cart.length; i++) {
+                    var img = cart[i].thumbnail;
+                    var name = cart[i].title;
+                    var price = cart[i].price;
+                    var buy_qty = cart[i].buy_qty;
+                    var id = cart[i].id;
+                    total += price * buy_qty;
+                    html += `<tr>       
+                            <td><img width="150" class="img-thumbnail" src="${img}"/></td>
+                            <td>${name}</td>
+                            <td>${price}$</td>
+                            <td>
+                                <button onclick="minus(${id})">-</button>
+                                ${buy_qty}
+                                <button onclick="plus(${id})">+</button>
+                                </td>
+                            <td>${price * buy_qty}$</td>
+                            <td><span onclick="removeItem(${id})" class="text-danger">X</span></td>
+                        </tr>`;
+                }
+            }
+            document.getElementById("list").innerHTML = html;
+            document.getElementById("total").innerText = total;
+        }
+
+        function minus(x) {
+            var cart = localStorage.getItem("cart");
+            if (cart == null) {
+                cart = [];
+            } else {
+                cart = JSON.parse(cart);
+            }
+
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].id == x) {
+                    var buy_qty = cart[i].buy_qty;
+                    if (buy_qty > 0) {
+                        cart[i].buy_qty = buy_qty - 1;
+                    } else {
+                        let text = "Bạn có muốn xóa sản phẩm không?";
+                        if (confirm(text) == true) {
+                            removeItem(x)
+                            return;
+                        }
+                    }
+                }
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            reloadHtml();
+        }
+
+        function plus(x) {
+            var cart = localStorage.getItem("cart");
+            if (cart == null) {
+                cart = [];
+            } else {
+                cart = JSON.parse(cart);
+            }
+
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].id == x) {
+                    cart[i].buy_qty = parseInt(cart[i].buy_qty) + 1;
+
+                    if (cart[i].buy_qty > cart[i].stock) {
+                        cart[i].buy_qty = cart[i].stock;
+                        alert("Số lượng đã vượt quá số lượng hàng trong kho")
+                        return;
+                    }
+                }
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            reloadHtml();
+        }
+
+        function removeAll() {
+            localStorage.setItem("cart", JSON.stringify([]));
+            reloadHtml();
+        }
+    </script>
+</body>
+
+</html>

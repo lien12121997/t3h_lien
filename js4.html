@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Products</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/loading.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form action="#" onsubmit="searchProduct()" method="GET" class="d-flex" role="search">
+                    <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="container my-3">
+            <div class="row" id="list">
+
+
+            </div>
+        </div>
+    </section>
+    <nav aria-label="Page navigation example">
+        <div class="container">
+            <ul class="pagination" id="pagination">
+
+            </ul>
+        </div>
+    </nav>
+    <div id="box-loading">
+        <div id="bg-fade"></div>
+        <div id="loading" class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="quickViewName"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="quickViewThumb" class="img-thumbnail" />
+                    <p id="quickViewPrice"></p>
+                    <p id="quickViewCategory"></p>
+                    <div id="cart"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        allProduct()
+        var page = 1;
+        var cart = localStorage.getItem("cart");
+        var whislist = localStorage.getItem("whislist");
+        if (whislist == null) {
+            whislist = [];
+        } else {
+            whislist = JSON.parse(whislist);
+        }
+        if (cart == null) {
+            cart = [];
+        } else {
+            cart = JSON.parse(cart);
+        }
+        function addToCart(x) {
+            var f = false;
+            for (var i = 0; i < cart.length; i++) {
+                if (x == cart[i].id) {
+                    f = true;
+                    cart[i].buy_qty = cart[i].buy_qty + 1;
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    alert("Đã thêm vào cart");
+                    break;
+                }
+            }
+            if (f == false) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    var rs = this.responseText;
+                    var data = JSON.parse(rs);
+                    //console.log(data);
+                    data.buy_qty = 1;
+                    cart.push(data);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    alert("Đã thêm vào cart");
+                }
+                xhttp.open("GET", `https://dummyjson.com/products/${x}`);
+                xhttp.send();
+            }
+        }
+        function prevPage() {
+            if (page > 1) {
+                page--;
+                searchProduct();
+            }
+
+        }
+        function nextPage() {
+            page++;
+            searchProduct();
+        }
+
+        function goToPage(p) {
+            page = p;
+            searchProduct();
+        }
+        function searchProduct() {
+            event.preventDefault();
+            document.getElementById("box-loading").style.display = "block";
+            var v = document.getElementById("search").value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var rs = this.responseText;
+                var data = JSON.parse(rs); // object
+                var products = data.products; // array
+                var html = ``;
+                for (var i = 0; i < products.length; i++) {
+                    var thumb = products[i].thumbnail;
+                    var name = products[i].title;
+                    var desc = products[i].description;
+                    var price = products[i].price;
+                    var id = products[i].id;
+                    html += `<div class="col-3">
+                        <div onclick="quickView(${id})" class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img height="190" src="${thumb}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">${name}</h5>
+                              <p class="card-text">${desc}</p>
+                              <p>
+                                    <span><a href="#" class="text-danger">$${price}</a></span>
+                                    <button class="border border-0 bg-transparent"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
+                                </p>
+                            </div>
+                          </div>
+                    </div>`;
+                }
+
+                document.getElementById("list").innerHTML = html;
+                document.getElementById("box-loading").style.display = "none";
+
+                var p_html = `<li class="page-item"><a onclick="prevPage()" class="page-link" href="#">Previous</a></li>`;
+                // nap các trang 1 2 3 ...
+                var total_page = data.total % 12 == 0 ? data.total / 12 : parseInt(data.total / 12) + 1;
+                for (var i = 1; i <= total_page; i++) {
+                    var active = page == i ? "active" : "";
+                    p_html += `<li class="page-item ${active}"><a onclick="goToPage(${i})" class="page-link" href="#">${i}</a></li>`;
+                }
+                p_html += `<li class="page-item"><a onclick="nextPage()" class="page-link" href="#">Next</a></li>`;
+                document.getElementById("pagination").innerHTML = p_html;
+            }
+            var skip = (page - 1) * 12;
+            xhttp.open("GET", `https://dummyjson.com/products/search?q=${v}&limit=12&skip=${skip}`);
+            xhttp.send();
+        }
+
+        function allProduct() {
+            var whislist = localStorage.getItem("whislist");
+            if (whislist == null) {
+                whislist = [];
+            } else {
+                whislist = JSON.parse(whislist);
+            }
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var rs = this.responseText;
+                var data = JSON.parse(rs); // object
+                var products = data.products; // array
+
+                var html = ``;
+                for (var i = 0; i < products.length; i++) {
+                    var thumb = products[i].thumbnail;
+                    var name = products[i].title;
+                    var desc = products[i].description;
+                    var price = products[i].price;
+                    var id = products[i].id;
+                    var itemWis = whislist.find(a => a.id == id);
+
+                    html += `<div class="col-3 mb-4">
+                        <div class="card">
+                            <img height="190" src="${thumb}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">${name}</h5>
+                                <p class="card-text">${desc}</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="text-danger link-underline link-offset-3">$${price}</a>
+                                    <button class="border-0 bg-transparent px-3 py-1" onclick='addToCart(${id})'>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="border-0 bg-transparent px-3 py-1" onclick='addWhislist(${id})'>
+                                        ${itemWis ?
+                                            '<i class="fa fa-heart" style="color: red" aria-hidden="true"></i>' 
+                                            : '<i class="fa fa-heart-o" aria-hidden="true"></i>'
+                                        }
+                                    </button>
+                                </div>
+                            </div>
+                          </div>
+                    </div>`;
+                }
+
+                document.getElementById("list").innerHTML = html;
+                document.getElementById("box-loading").style.display = "none";
+
+                var p_html = `<li class="page-item"><a onclick="prevPage()" class="page-link" href="#">Previous</a></li>`;
+                // nap các trang 1 2 3 ...
+                var total_page = data.total % 12 == 0 ? data.total / 12 : parseInt(data.total / 12) + 1;
+                for (var i = 1; i <= total_page; i++) {
+                    var active = page == i ? "active" : "";
+                    p_html += `<li class="page-item ${active}"><a onclick="goToPage(${i})" class="page-link" href="#">${i}</a></li>`;
+                }
+                p_html += `<li class="page-item"><a onclick="nextPage()" class="page-link" href="#">Next</a></li>`;
+                document.getElementById("pagination").innerHTML = p_html;
+            }
+            var skip = (page - 1) * 12;
+            xhttp.open("GET", `https://dummyjson.com/products`);
+            xhttp.send();
+        }
+
+        function quickView(x) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var rs = this.responseText;
+                var data = JSON.parse(rs);
+                var id = data.id;
+                document.getElementById("quickViewName").innerText = data.title;
+                document.getElementById("quickViewCategory").innerText = data.category;
+                document.getElementById("quickViewPrice").innerText = data.price;
+                document.getElementById("quickViewThumb").src = data.thumbnail;
+                var html = `<button type="button" onclick="addToCart(${id})" class="btn btn-danger">Add to cart</button>`;
+                document.getElementById("cart").innerHTML = html;
+            }
+            xhttp.open("GET", `https://dummyjson.com/products/${x}`);
+            xhttp.send();
+        }
+
+        function addWhislist(x) {
+            for (var i = 0; i < whislist.length; i++) {
+                if (x == whislist[i].id) {
+                    whislist.splice(i, 1);
+                    localStorage.setItem("whislist", JSON.stringify(whislist));
+                    return;
+                }
+            }
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                var rs = this.responseText;
+                var data = JSON.parse(rs);
+                whislist.push(data);
+                localStorage.setItem("whislist", JSON.stringify(whislist));
+            }
+            xhttp.open("GET", `https://dummyjson.com/products/${x}`);
+            xhttp.send();
+            allProduct()
+        }
+    </script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
