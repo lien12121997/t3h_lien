@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/jsfinal/home.css">
+</head>
+
+<body>
+    <section class="container">
+        <HeaderComponent></HeaderComponent>
+    </section>
+    <div class="container mb-4">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search_key">
+            <button class="btn btn-outline-success" onClick="searchkey()" type="button">Search</button>
+        </form>
+    </div>
+    <section class="container">
+        <ProductItemComponent></ProductItemComponent>
+    </section>
+    
+    <script>
+        localStorage.setItem("search", '');
+    </script>
+
+    <script src="../js/jsfinal/header.js"></script>
+    <script src="../js/jsfinal/product_item.js"></script>
+
+    <script>
+        function searchkey() {
+            var search = document.getElementById('search_key').value;
+            localStorage.setItem("search", search);
+            new ProductItemComponent()
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+:focus, :focus-visible {
+    outline: none;
+    border: none;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+a {
+    color: black !important;
+    text-decoration: none;
+}
+.line-border {
+    height: 45px;
+}
+.banner {
+    background-color: #f7f0ea;
+    border-radius: 20px;
+    width: 100%;
+}
+.banner img {
+    max-height: 650px;
+}
+.content-banner {
+    left: 10%;
+    top: 30%;
+}
+.content-banner .title {
+    font-size: 4.5rem;
+    line-height: 115%!important;
+}
+.btn-search,
+.btn-add-cart {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    background-color: #0f172a;
+    color: white;
+}
+.btn-add-cart {
+    margin-top: 15px;
+    padding: 10px 60px;
+    border-radius: 30px;
+}
+.step1 {
+    background-color: #fee2e2;
+    color: #991b1b;
+    width: 70px;
+    display: inline-block;
+}
+.step2 {
+    background-color: #e0e7ff;
+    color: #3a30a3;
+    width: 70px;
+    display: inline-block;
+}
+.step3 {
+    background-color: #fef9c3;
+    color: #854d0e;
+    width: 70px;
+    display: inline-block;
+}
+.step4 {
+    background-color: #f3e8ff;
+    color: #6b21a8;
+    width: 70px;
+    display: inline-block;
+}
+.btn-price {
+    color: #22c55e;
+    border: 2px solid #22c55e;
+    background: none;
+    border-radius: 8px;
+}
+.fa-star {
+    color: #fbbf24;
+}
+.card-product {
+    border: none;
+}
+.card-product .card-img {
+    border-radius: 16px;
+    height: 300px;
+    position: relative;
+    background-color: #dee8f2;
+}
+.card-product .card-img img {
+    position: absolute;
+    top: 0;left: 0;bottom: 0;right: 0;
+    width: auto;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.btn-wishlist {
+    background: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+}
+.bg-gray {
+    background-color: #f4f7fa;
+}

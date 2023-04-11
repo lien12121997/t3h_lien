@@ -23,7 +23,7 @@ class ProductComponent {
             var data = JSON.parse(res);
             items = data.products;
         }
-        xhttp.open("GET", `https://dummyjson.com/products`, false);
+        xhttp.open("GET", url, false);
         xhttp.send();
         this.products = items
         console.log(this.products, 'aaa')
